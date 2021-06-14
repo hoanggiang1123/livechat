@@ -157,6 +157,7 @@ export default {
         this.socket.emit('USER_ENTRANCE');
 
         window.addEventListener('message', (event) => {
+            console.log(event.data.msg)
             if (event.data.msg) {
                 this.socket.emit('USER_LOGIN', event.data.token);
             }
@@ -185,6 +186,7 @@ export default {
         sendChat () {
             if (this.chat === '') return false;
             this.socket.emit('USER_SEND_CHAT', this.chat);
+            this.playSound(sendChatSound);
             this.chat = '';
             this.socket.emit('USER_TYPING', false);
         },
