@@ -157,7 +157,6 @@ export default {
         this.socket.emit('USER_ENTRANCE');
 
         window.addEventListener('message', (event) => {
-            console.log(event.data)
             if (event.data.msg) {
                 this.socket.emit('USER_LOGIN', event.data.token);
             }
